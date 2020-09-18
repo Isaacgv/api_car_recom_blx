@@ -1,0 +1,5 @@
+Flask>=1.0.0
+cloudant==2.13.0
+ibm-cloud-sdk-core==1.7.3
+ibm-watson==4.7.1
+requests==2.24.0
