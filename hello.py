@@ -42,10 +42,9 @@ port = int(os.getenv('PORT', 8000))
 
 @app.route("/mutipart/form-data", methods=["POST"])
 def index():
-    if not request.json:   
-        abort(400)
+   
 
-    body = request.get_json()
+    body = request.form
     car = body['car'].lower().split()
     print(body)
 
@@ -55,15 +54,12 @@ def index():
         print(text_audio)
         return recommend
         
-        
     
     elif 'text' in body:
         recommend = sentiment_nlu(body['text'], car)
         print(body['text'])  
         return recommend 
 
-    else:
-        abort(400)
 
 @atexit.register
 def shutdown():
